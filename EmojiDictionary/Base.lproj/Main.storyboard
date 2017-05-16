@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HpK-r3-Dn5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HpK-r3-Dn5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -68,18 +68,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Creation Year" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rY-In-a95">
+                                <rect key="frame" x="136" y="485" width="103" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzr-5m-cHf">
+                                <rect key="frame" x="152" y="434" width="71" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="7rY-In-a95" firstAttribute="top" secondItem="bzr-5m-cHf" secondAttribute="bottom" constant="30" id="0km-aS-xZy"/>
                             <constraint firstItem="mml-sr-fve" firstAttribute="top" secondItem="nOu-Bv-vuO" secondAttribute="bottom" constant="50" id="7y0-gf-pVf"/>
                             <constraint firstItem="nOu-Bv-vuO" firstAttribute="centerX" secondItem="NUj-AC-whY" secondAttribute="centerX" id="864-64-9gm"/>
                             <constraint firstItem="mml-sr-fve" firstAttribute="centerX" secondItem="NUj-AC-whY" secondAttribute="centerX" id="GoS-LQ-spg"/>
+                            <constraint firstItem="bzr-5m-cHf" firstAttribute="top" secondItem="mml-sr-fve" secondAttribute="bottom" constant="20" id="R33-p1-H6m"/>
+                            <constraint firstItem="bzr-5m-cHf" firstAttribute="centerX" secondItem="NUj-AC-whY" secondAttribute="centerX" id="qdB-cX-heM"/>
                             <constraint firstItem="nOu-Bv-vuO" firstAttribute="top" secondItem="dPq-wr-GJX" secondAttribute="bottom" constant="40" id="wdY-k3-De7"/>
+                            <constraint firstItem="7rY-In-a95" firstAttribute="centerX" secondItem="NUj-AC-whY" secondAttribute="centerX" id="wfY-rA-Rhi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="categoryLabel" destination="bzr-5m-cHf" id="Yvw-pJ-ZHQ"/>
                         <outlet property="emojiDefinition" destination="mml-sr-fve" id="WGG-bL-y0S"/>
                         <outlet property="largeEmoji" destination="nOu-Bv-vuO" id="BKy-oI-dq7"/>
+                        <outlet property="yearLabel" destination="7rY-In-a95" id="CPh-v4-AFj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gAE-ne-MBB" userLabel="First Responder" sceneMemberID="firstResponder"/>

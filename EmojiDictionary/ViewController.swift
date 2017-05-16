@@ -12,13 +12,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBOutlet weak var emojiList: UITableView!
     
-    var emojis = ["👽","🤑","😀","😇","😡","😈","💩","✊","👀","🐸"]
+    var emojis: [Emoji] = []
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         emojiList.dataSource = self
         emojiList.delegate = self
+        emojis = makeEmojiArray()
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -28,7 +31,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print(indexPath.row)
         let cell = UITableViewCell()
-        cell.textLabel?.text = emojis[indexPath.row]
+        cell.textLabel?.text = emojis[indexPath.row].emoji
         return cell
     }
     
@@ -40,7 +43,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let defVC = segue.destination as! EmojiDefinitionViewController
-        defVC.emoji = sender as! String
+        defVC.emoji = sender as! Emoji
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,6 +51,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
+    //Create the array with emojis and related data
+    func makeEmojiArray () -> [Emoji]{
+        var emojis = ["👽","🤑","😀","😇","😡","😈","💩","✊","👀","🐸"]
+        var emojiDefinitions = ["Out of this world alien face", "Greedy money face", "Big smiley face", "Innocent angel face", "Furious face", "Smiley devil face", "Happy poo", "Raised fist", "Wide side eyes", "Froggy face"]
+        var emojiCategories = ["Creature","Person", "Person", "Person", "Person", "Person", "Object", "Object", "Object", "Creature"]
+        var emojiYears = [2000,2012,1998,2002,2002,2000,2005,2008,2010,2005]
+        
+        var emojiArray  = [Emoji]()
+        for index in 0...emojis.count-1{
+            let newEmoji = Emoji()
+            newEmoji.emoji = emojis[index]
+            newEmoji.definition = emojiDefinitions[index]
+            newEmoji.category = emojiCategories[index]
+            newEmoji.startYear = emojiYears[index]
+            emojiArray.append(newEmoji)
+        }
+        
+        return emojiArray
+    }
 
 }
 

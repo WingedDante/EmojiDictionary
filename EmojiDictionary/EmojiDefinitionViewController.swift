@@ -10,22 +10,24 @@ import UIKit
 
 class EmojiDefinitionViewController: UIViewController {
 
-    var emoji = "NOMOJI"
+    var emoji = Emoji()
     
     @IBOutlet weak var largeEmoji: UILabel!
-    
     @IBOutlet weak var emojiDefinition: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        largeEmoji.text = emoji
+        largeEmoji.text = emoji.emoji
+        emojiDefinition.text = emoji.definition
+        categoryLabel.text = emoji.category
+        yearLabel.text = String(emoji.startYear)
         
-        if emoji == "😀"{
-         emojiDefinition.text = "A smiley face! So Happy!"
-        }
     }
 
     override func didReceiveMemoryWarning() {
